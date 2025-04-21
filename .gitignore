@@ -1,0 +1,13 @@
+# Python cache
+__pycache__/
+*.pyc
+
+# API keys / environment
+.env
+
+# Local vector databases (FAISS/Chroma/etc.)
+vectorstore/
+
+# Optional: System & editor files
+.DS_Store
+.vscode/

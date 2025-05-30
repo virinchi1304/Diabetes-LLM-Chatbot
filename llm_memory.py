@@ -19,7 +19,7 @@ def load_pdf_files(data):
     return documents
 
 documents = load_pdf_files(data=DATA_PATH)
-print("✅ Loaded PDF pages:", len(documents))
+print(" Loaded PDF pages:", len(documents))
 
 def create_chunks(extracted_data):
     text_splitter = RecursiveCharacterTextSplitter(
@@ -30,13 +30,13 @@ def create_chunks(extracted_data):
     return text_chunks
 
 text_chunks = create_chunks(extracted_data=documents)
-print("✅ Created text chunks:", len(text_chunks))
+print(" Created text chunks:", len(text_chunks))
 
 def get_embedding_model():
     return HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2",
         show_progress=True,
-        encode_kwargs={'device': 'cpu'}  # Change to 'cuda' if GPU is needed
+        encode_kwargs={'device': 'cpu'}  
     )
 
 embedding_model = get_embedding_model()
@@ -45,4 +45,4 @@ DB_FAISS_PATH = "vectorstore/db_faiss"
 db = FAISS.from_documents(text_chunks, embedding_model)
 db.save_local(DB_FAISS_PATH)
 
-print(f"✅ FAISS vector store saved at: {DB_FAISS_PATH}")
+print(f" FAISS vector store saved at: {DB_FAISS_PATH}")

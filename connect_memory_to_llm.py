@@ -14,9 +14,9 @@ HUGGINGFACE_REPO_ID = "mistralai/Mistral-7B-Instruct-v0.3"
 def load_llm(huggingface_repo_id, HF_TOKEN):
     llm = HuggingFaceEndpoint(
         repo_id=huggingface_repo_id,
-        token=HF_TOKEN,            # ✅ Corrected
+        token=HF_TOKEN,            
         temperature=0.5,
-        max_length=512             # ✅ Corrected
+        max_length=512             
     )
     return llm
 

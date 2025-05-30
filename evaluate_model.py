@@ -35,7 +35,7 @@ def evaluate_model():
 
             loader = PyPDFLoader(tmp_file_path)
             documents = loader.load()
-            st.success(f"✅ Loaded {len(documents)} pages from the uploaded PDF.")
+            st.success(f" Loaded {len(documents)} pages from the uploaded PDF.")
 
             text_splitter = RecursiveCharacterTextSplitter(chunk_size=500, chunk_overlap=50)
             text_chunks = text_splitter.split_documents(documents)

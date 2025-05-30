@@ -67,7 +67,7 @@ def evaluate_model():
                 chain_type_kwargs={'prompt': PromptTemplate(template=CUSTOM_PROMPT_TEMPLATE, input_variables=["context", "question"])}
             )
 
-            st.subheader("📝 Evaluation Questions")
+            st.subheader(" Evaluation Questions")
             questions = st.text_area("Enter your evaluation questions, one per line", height=200)
 
             if questions.strip() and st.button("Evaluate"):
@@ -93,10 +93,10 @@ def evaluate_model():
 
                 if results:
                     avg_similarity = total_similarity / len(results)
-                    st.metric("📈 Average Semantic Similarity Score", f"{avg_similarity:.4f}")
+                    st.metric(" Average Semantic Similarity Score", f"{avg_similarity:.4f}")
 
         except Exception as e:
-            st.error(f"🚨 Error during PDF evaluation: {str(e)}")
+            st.error(f" Error during PDF evaluation: {str(e)}")
 
 if __name__ == "__main__":
     evaluate_model()
